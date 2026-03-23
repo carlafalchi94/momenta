@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -42,24 +42,40 @@
       width: 100%;
       max-width: 1100px;
       margin: 0 auto;
+      position: relative;
+    }
+
+    .logo-wrap {
+      position: absolute;
+      top: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
     }
 
     .logo {
       max-width: 180px;
       height: auto;
-      margin-bottom: 48px;
       opacity: 0.9;
       display: block;
     }
 
+    .content {
+      padding-top: 80px;
+    }
+
     .headline {
       margin: 0 0 20px;
-      max-width: 700px;
-      font-family: 'Instrument Serif', serif;
+      max-width: 760px;
+      font-family: "Neue Haas Grotesk Display Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-size: clamp(42px, 8vw, 88px);
-      line-height: 0.98;
+      line-height: 0.96;
       font-weight: 400;
-      letter-spacing: -0.04em;
+      letter-spacing: -0.05em;
       color: #f0ebe3;
     }
 
@@ -174,9 +190,16 @@
         align-items: center;
       }
 
+      .logo-wrap {
+        top: 20px;
+      }
+
       .logo {
-        max-width: 150px;
-        margin-bottom: 40px;
+        max-width: 145px;
+      }
+
+      .content {
+        padding-top: 72px;
       }
 
       .subtext {
@@ -194,27 +217,31 @@
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
 
+  <div class="logo-wrap">
+    <img src="black_h.png" alt="Momenta logo" class="logo" />
+  </div>
+
   <main class="page">
     <div class="container">
-      <img src="black_h.png" alt="Momenta logo" class="logo" />
+      <div class="content">
+        <h1 class="headline">Come back to<br>who you are.</h1>
 
-      <h1 class="headline">Come back to<br>who you are.</h1>
+        <p class="subtext">
+          A daily return to self through alignment and deliberate connection.
+        </p>
 
-      <p class="subtext">
-        A daily return to self through alignment and deliberate connection.
-      </p>
+        <div class="form-wrap">
+          <input
+            type="email"
+            placeholder="Email Address"
+            class="email-input"
+          />
 
-      <div class="form-wrap">
-        <input
-          type="email"
-          placeholder="Email Address"
-          class="email-input"
-        />
-
-        <button class="cta" type="button">
-          <span>Join the waitlist</span>
-          <span class="cta-line"></span>
-        </button>
+          <button class="cta" type="button">
+            <span>Join the waitlist</span>
+            <span class="cta-line"></span>
+          </button>
+        </div>
       </div>
     </div>
   </main>
