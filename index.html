@@ -100,7 +100,7 @@
     .logo {
       max-width: 180px;
       height: auto;
-      opacity: 1 !important;;
+      opacity: 1 !important;
       display: block;
     }
 
@@ -144,6 +144,8 @@
       font-size: 14px;
       outline: none;
       border-radius: 0;
+      appearance: none;
+      -webkit-appearance: none;
     }
 
     .email-input::placeholder {
@@ -180,6 +182,15 @@
 
     .cta:hover .cta-line {
       width: 88px;
+    }
+
+    .ml-success-message {
+      margin-top: 28px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8b8480;
     }
 
     @keyframes moveOrb1 {
@@ -284,20 +295,52 @@
           A daily return to self through alignment and deliberate connection.
         </p>
 
-        <div class="form-wrap">
+        <form
+          class="form-wrap ml-block-form ml-subscribe-form ml-subscribe-form-38839695"
+          action="https://assets.mailerlite.com/jsonp/2213974/forms/182707388094088435/subscribe"
+          method="post"
+          target="_blank"
+        >
           <input
             type="email"
+            name="fields[email]"
             placeholder="Email Address"
             class="email-input"
+            autocomplete="email"
+            aria-label="Email Address"
+            aria-required="true"
+            required
           />
 
-          <button class="cta" type="button">
+          <input type="hidden" name="ml-submit" value="1" />
+          <input type="hidden" name="anticsrf" value="true" />
+
+          <button class="cta" type="submit">
             <span>Join the waitlist</span>
             <span class="cta-line"></span>
           </button>
+        </form>
+
+        <div class="ml-success-message" id="ml-success-38839695" style="display:none;">
+          You’re on the list.
         </div>
       </div>
     </div>
   </main>
+
+  <script>
+    function ml_webform_success_38839695() {
+      const form = document.querySelector('.ml-subscribe-form-38839695');
+      const success = document.getElementById('ml-success-38839695');
+
+      if (form) form.style.display = 'none';
+      if (success) success.style.display = 'block';
+    }
+  </script>
+
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
+  <script>
+    fetch("https://assets.mailerlite.com/jsonp/2213974/forms/182707388094088435/takel");
+  </script>
 </body>
 </html>
