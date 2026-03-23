@@ -1,11 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Momenta Test</title>
+  <title>momenta — Come back to who you are.</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      margin: 0;
+      background: #080808;
+      color: #f0ebe3;
+      -webkit-font-smoothing: antialiased;
+      font-family: Arial, sans-serif;
+    }
+
+    .orb-blur {
+      position: absolute;
+      filter: blur(120px);
+      opacity: 0.2;
+      background: radial-gradient(circle, rgba(154,148,142,0.8) 0%, rgba(8,8,8,0) 75%);
+      animation: orb-breathe 25s ease-in-out infinite alternate;
+      will-change: transform;
+      border-radius: 9999px;
+      pointer-events: none;
+    }
+
+    @keyframes orb-breathe {
+      0% { transform: scale(1) translate(0, 0) rotate(0deg); }
+      50% { transform: scale(1.15) translate(5%, -5%) rotate(5deg); }
+      100% { transform: scale(0.95) translate(-8%, 4%) rotate(-5deg); }
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-cinematic {
+      animation: fadeSlideUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      opacity: 0;
+    }
+
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-600 { animation-delay: 0.6s; }
+  </style>
 </head>
-<body style="margin:0;min-height:100vh;display:grid;place-items:center;background:#0a0a0a;color:#fff;font-family:Arial,sans-serif;">
-  <h1>Momenta is live</h1>
+<body>
+  <main class="relative min-h-screen overflow-hidden flex flex-col justify-center px-8 md:px-24">
+    <div class="orb-blur top-1/4 -right-24 w-[600px] h-[600px]"></div>
+    <div class="orb-blur -bottom-48 -left-24 w-[800px] h-[800px]"></div>
+
+    <div class="relative z-10 max-w-4xl w-full">
+      <div class="flex flex-col space-y-16">
+        <div class="space-y-10">
+          <h1 class="animate-cinematic leading-[1.1] text-[#f0ebe3] text-4xl md:text-6xl tracking-tight font-light">
+            Come back to<br>who you are.
+          </h1>
+
+          <p class="animate-cinematic delay-300 text-sm md:text-lg text-[#7a7470] max-w-lg leading-relaxed tracking-tight">
+            A daily return to self through alignment and deliberate connection.
+          </p>
+        </div>
+
+        <div class="animate-cinematic delay-600 max-w-md w-full">
+          <form class="flex flex-col space-y-10">
+            <div class="relative">
+              <input
+                type="email"
+                placeholder="Email Address"
+                class="w-full bg-transparent border-t-0 border-x-0 border-b border-[#474747]/40 focus:border-[#f0ebe3] focus:ring-0 px-0 py-4 text-sm transition-colors duration-500 placeholder:text-[#474747] outline-none"
+              />
+            </div>
+
+            <button class="group flex items-center gap-6 text-left w-fit transition-all duration-500" type="submit">
+              <span class="uppercase text-xs tracking-[0.2em] text-[#faf6f0]">Join the waitlist</span>
+              <div class="w-12 h-[1px] bg-[#faf6f0] transition-all duration-500 group-hover:w-24"></div>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
