@@ -299,7 +299,8 @@
           class="form-wrap ml-block-form ml-subscribe-form ml-subscribe-form-38839695"
           action="https://assets.mailerlite.com/jsonp/2213974/forms/182707388094088435/subscribe"
           method="post"
-          target="_blank"
+          target="ml-hidden-frame"
+          id="ml-form-38839695"
         >
           <input
             type="email"
@@ -321,6 +322,8 @@
           </button>
         </form>
 
+        <iframe name="ml-hidden-frame" id="ml-hidden-frame" style="display:none;"></iframe>
+
         <div class="ml-success-message" id="ml-success-38839695" style="display:none;">
           You’re on the list.
         </div>
@@ -329,18 +332,26 @@
   </main>
 
   <script>
-    function ml_webform_success_38839695() {
-      const form = document.querySelector('.ml-subscribe-form-38839695');
-      const success = document.getElementById('ml-success-38839695');
+    const mlForm = document.getElementById('ml-form-38839695');
+    const mlIframe = document.getElementById('ml-hidden-frame');
+    const mlSuccess = document.getElementById('ml-success-38839695');
 
-      if (form) form.style.display = 'none';
-      if (success) success.style.display = 'block';
+    let mlSubmitted = false;
+
+    if (mlForm) {
+      mlForm.addEventListener('submit', function () {
+        mlSubmitted = true;
+      });
     }
-  </script>
 
-  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
-  <script>
-    fetch("https://assets.mailerlite.com/jsonp/2213974/forms/182707388094088435/takel");
+    if (mlIframe) {
+      mlIframe.addEventListener('load', function () {
+        if (!mlSubmitted) return;
+
+        if (mlForm) mlForm.style.display = 'none';
+        if (mlSuccess) mlSuccess.style.display = 'block';
+      });
+    }
   </script>
 </body>
 </html>
