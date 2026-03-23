@@ -1,48 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Momenta Test</title>
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #080808;
-      color: #f5f5f5;
-      font-family: Arial, sans-serif;
-    }
 
-    .wrap {
-      text-align: center;
-    }
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>momenta — Come back to who you are.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=DM+Mono:ital,wght@0,300;0,400;0,500&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed-dim": "#4b4642",
+                        "secondary-fixed": "#ccc5bf",
+                        "secondary-fixed-dim": "#b1aaa4",
+                        "on-error": "#690005",
+                        "secondary": "#ccc5bf",
+                        "on-tertiary-container": "#000000",
+                        "on-primary-fixed-variant": "#e6e2dc",
+                        "on-secondary": "#1e1b17",
+                        "on-primary": "#1c1c18",
+                        "secondary-container": "#4a4641",
+                        "tertiary": "#e9e1dc",
+                        "error-container": "#93000a",
+                        "error": "#ffb4ab",
+                        "primary-container": "#d7d4ce",
+                        "on-primary-container": "#000000",
+                        "inverse-primary": "#605e5a",
+                        "primary-fixed-dim": "#484743",
+                        "surface": "#131313",
+                        "background": "#080808",
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#313030",
+                        "outline": "#919191",
+                        "surface-container-high": "#2a2a2a",
+                        "on-surface-variant": "#c6c6c6",
+                        "surface-variant": "#353534",
+                        "on-surface": "#e5e2e1",
+                        "tertiary-container": "#968f8b",
+                        "surface-container": "#201f1f",
+                        "primary-fixed": "#605e5a",
+                        "on-primary-fixed": "#ffffff",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-dim": "#131313",
+                        "tertiary-fixed": "#635d5a",
+                        "on-tertiary-fixed": "#ffffff",
+                        "on-secondary-fixed": "#1e1b17",
+                        "surface-tint": "#c9c6c0",
+                        "outline-variant": "#474747",
+                        "surface-container-low": "#1c1b1b",
+                        "inverse-surface": "#e5e2e1",
+                        "on-tertiary": "#1e1b18",
+                        "on-secondary-container": "#e9e1da",
+                        "primary": "#ffffff",
+                        "surface-container-highest": "#353534",
+                        "on-tertiary-fixed-variant": "#e9e1dc",
+                        "on-secondary-fixed-variant": "#3f3b36",
+                        "surface-bright": "#3a3939",
+                        "on-background": "#e5e2e1"
+                    },
+                    fontFamily: {
+                        "headline": ["Instrument Serif", "serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["DM Mono", "monospace"],
+                        "sans": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #080808;
+            color: #f0ebe3;
+            -webkit-font-smoothing: antialiased;
+        }
+        .instrument-serif { font-family: 'Instrument Serif', serif; }
+        .dm-mono { font-family: 'DM Mono', monospace; }
+        
+        /* Orb Animations */
+        .orb-blur {
+            filter: blur(120px);
+            opacity: 0.25;
+            background: radial-gradient(circle, rgba(154, 148, 142, 0.8) 0%, rgba(8, 8, 8, 0) 75%);
+            animation: orb-breathe 25s ease-in-out infinite alternate;
+            will-change: transform;
+        }
+    
+        @keyframes orb-breathe {
+            0% {
+                transform: scale(1) translate(0, 0) rotate(0deg);
+            }
+            50% {
+                transform: scale(1.15) translate(5%, -5%) rotate(5deg);
+            }
+            100% {
+                transform: scale(0.95) translate(-8%, 4%) rotate(-5deg);
+            }
+        }
 
-    .logo {
-      max-width: 180px;
-      height: auto;
-      margin-bottom: 24px;
-    }
+        /* Cinematic Entrance Animations */
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    h1 {
-      margin: 0 0 12px;
-      font-size: 40px;
-      font-weight: 400;
-    }
+        .animate-cinematic {
+            animation: fadeSlideUp 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            opacity: 0;
+        }
 
-    p {
-      margin: 0;
-      color: #b5b5b5;
-    }
-  </style>
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-600 { animation-delay: 0.6s; }
+    </style>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 </head>
-<body>
-  <div class="wrap">
-    <img src="black_h.png" alt="Momenta logo" class="logo" />
-    <h1>Come back to who you are.</h1>
-    <p>Momenta test page</p>
-  </div>
-</body>
-</html>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<main class="relative min-h-screen overflow-hidden flex flex-col justify-center px-8 md:px-24"><div class="absolute top-12 z-50 animate-cinematic left-1/2 -translate-x-1/2">
+<img alt="momenta logo" class="h-6 md:h-8 w-auto invert brightness-0 invert-[0.9] opacity-60" src="https://lh3.googleusercontent.com/aida/ADBb0uiHOptnGE9c6Kp_nOJDzZVMZQ2O_JV2z_ANEnQmdJhT9wC4yxaLfBfkXv-vOgoc4qu3EoxdoKEG7gcW0HPQ0dxeWKa00mqQSixOD5g_YoGZ21JpSk6fs943fKPRlGCvCs2a4-9SHQWwY173qw9RUG21zftYG3y7dYHho5CBYL-bLpPynRGdTliQmohinWXLEIO9TCiNiNVHsi8SQvNZNKMQS93HYPZcg4eAMVZgggky7kl1t4nCoZRxDkom6Z0rA6B_8lEU39BVaw"/>
+</div>
+<!-- Background Orbs -->
+<div class="absolute top-1/4 -right-24 w-[600px] h-[600px] orb-blur rounded-full pointer-events-none"></div>
+<div class="absolute -bottom-48 -left-24 w-[800px] h-[800px] orb-blur rounded-full pointer-events-none"></div>
+<div class="relative z-10 max-w-4xl w-full">
+<div class="flex flex-col space-y-16">
+<div class="space-y-10">
+<h1 class="animate-cinematic leading-[1.1] text-[#f0ebe3] text-4xl md:text-6xl tracking-tight normal-case tracking-tighter font-body font-extralight">
+                    Come back to<br/>who you are.
+                </h1>
+<p class="animate-cinematic delay-300 dm-mono text-sm md:text-lg text-[#7a7470] max-w-lg leading-relaxed tracking-tight">
+                    A daily return to self through alignment and deliberate connection.
+                </p>
+</div>
+<!-- Waitlist Form -->
+<div class="animate-cinematic delay-600 max-w-md w-full">
+<form class="flex flex-col space-y-10">
+<div class="relative">
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b border-[#474747]/40 focus:border-[#f0ebe3] focus:ring-0 px-0 py-4 dm-mono text-sm transition-colors duration-500 placeholder:text-[#474747]" placeholder="Email Address" type="email"/>
+</div>
+<button class="group flex items-center gap-6 text-left w-fit transition-all duration-500" type="submit">
+<span class="dm-mono uppercase text-xs tracking-[0.2em] text-[#faf6f0]">Join the waitlist</span>
+<div class="w-12 h-[0.5px] bg-[#faf6f0] transition-all duration-500 group-hover:w-24"></div>
+</button>
+</form>
+</div>
+</div>
+</div>
+</main>
+</body></html>
