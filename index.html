@@ -1,164 +1,182 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>momenta — Come back to who you are.</title>
-
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:ital,wght@0,300;0,400;0,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "tertiary-fixed-dim": "#4b4642",
-            "secondary-fixed": "#ccc5bf",
-            "secondary-fixed-dim": "#b1aaa4",
-            "on-error": "#690005",
-            "secondary": "#ccc5bf",
-            "on-tertiary-container": "#000000",
-            "on-primary-fixed-variant": "#e6e2dc",
-            "on-secondary": "#1e1b17",
-            "on-primary": "#1c1c18",
-            "secondary-container": "#4a4641",
-            "tertiary": "#e9e1dc",
-            "error-container": "#93000a",
-            "error": "#ffb4ab",
-            "primary-container": "#d7d4ce",
-            "on-primary-container": "#000000",
-            "inverse-primary": "#605e5a",
-            "primary-fixed-dim": "#484743",
-            "surface": "#131313",
-            "background": "#080808",
-            "on-error-container": "#ffdad6",
-            "inverse-on-surface": "#313030",
-            "outline": "#919191",
-            "surface-container-high": "#2a2a2a",
-            "on-surface-variant": "#c6c6c6",
-            "surface-variant": "#353534",
-            "on-surface": "#e5e2e1",
-            "tertiary-container": "#968f8b",
-            "surface-container": "#201f1f",
-            "primary-fixed": "#605e5a",
-            "on-primary-fixed": "#ffffff",
-            "surface-container-lowest": "#0e0e0e",
-            "surface-dim": "#131313",
-            "tertiary-fixed": "#635d5a",
-            "on-tertiary-fixed": "#ffffff",
-            "on-secondary-fixed": "#1e1b17",
-            "surface-tint": "#c9c6c0",
-            "outline-variant": "#474747",
-            "surface-container-low": "#1c1b1b",
-            "inverse-surface": "#e5e2e1",
-            "on-tertiary": "#1e1b18",
-            "on-secondary-container": "#e9e1da",
-            "primary": "#ffffff",
-            "surface-container-highest": "#353534",
-            "on-tertiary-fixed-variant": "#e9e1dc",
-            "on-secondary-fixed-variant": "#3f3b36",
-            "surface-bright": "#3a3939",
-            "on-background": "#e5e2e1"
-          },
-          fontFamily: {
-            "headline": ["Instrument Serif", "serif"],
-            "body": ["Inter", "sans-serif"],
-            "label": ["DM Mono", "monospace"]
-          },
-          borderRadius: {
-            "DEFAULT": "0px",
-            "lg": "0px",
-            "xl": "0px",
-            "full": "9999px"
-          }
-        }
-      }
-    }
-  </script>
-
   <style>
     body {
-      background-color: #080808;
+      margin: 0;
+      min-height: 100vh;
+      background: #080808;
       color: #f0ebe3;
+      font-family: Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+      position: relative;
     }
-    .dm-mono { font-family: 'DM Mono', monospace; }
 
-    .orb-blur {
+    .page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 40px 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      max-width: 180px;
+      height: auto;
+      margin-bottom: 48px;
+      opacity: 0.85;
+    }
+
+    h1 {
+      margin: 0 0 20px;
+      font-size: clamp(42px, 8vw, 88px);
+      line-height: 0.98;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      max-width: 700px;
+    }
+
+    .sub {
+      margin: 0 0 56px;
+      max-width: 520px;
+      color: #8b8480;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .form-wrap {
+      max-width: 420px;
+    }
+
+    .email-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(255,255,255,0.22);
+      color: #f0ebe3;
+      padding: 0 0 16px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .email-input::placeholder {
+      color: #5e5a57;
+    }
+
+    .cta {
+      margin-top: 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      background: none;
+      border: none;
+      color: #faf6f0;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 11px;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .cta-line {
+      width: 48px;
+      height: 1px;
+      background: #faf6f0;
+      transition: width 0.3s ease;
+    }
+
+    .cta:hover .cta-line {
+      width: 88px;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 999px;
       filter: blur(120px);
-      opacity: 0.25;
-      background: radial-gradient(circle, rgba(154, 148, 142, 0.8) 0%, rgba(8, 8, 8, 0) 75%);
-      animation: orb-breathe 25s ease-in-out infinite alternate;
-      will-change: transform;
+      opacity: 0.18;
+      background: radial-gradient(circle, rgba(160,150,145,0.85) 0%, rgba(8,8,8,0) 72%);
+      animation: floatOrb 18s ease-in-out infinite alternate;
+      pointer-events: none;
+      z-index: 1;
     }
 
-    @keyframes orb-breathe {
-      0%   { transform: scale(1) translate(0, 0) rotate(0deg); }
-      50%  { transform: scale(1.15) translate(5%, -5%) rotate(5deg); }
-      100% { transform: scale(0.95) translate(-8%, 4%) rotate(-5deg); }
+    .orb-1 {
+      width: 520px;
+      height: 520px;
+      top: 8%;
+      right: -120px;
     }
 
-    @keyframes fadeSlideUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
+    .orb-2 {
+      width: 700px;
+      height: 700px;
+      bottom: -240px;
+      left: -180px;
+      animation-duration: 24s;
     }
 
-    .animate-cinematic {
-      animation: fadeSlideUp 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-      opacity: 0;
+    @keyframes floatOrb {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+      50% {
+        transform: translate(24px, -18px) scale(1.06);
+      }
+      100% {
+        transform: translate(-30px, 20px) scale(0.96);
+      }
     }
 
-    .delay-300 { animation-delay: 0.3s; }
-    .delay-600 { animation-delay: 0.6s; }
+    @media (max-width: 768px) {
+      .page {
+        padding: 32px 20px;
+      }
+
+      .logo {
+        max-width: 150px;
+        margin-bottom: 40px;
+      }
+
+      .sub {
+        font-size: 15px;
+        margin-bottom: 44px;
+      }
+    }
   </style>
 </head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
 
-<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
-  <main class="relative min-h-screen overflow-hidden flex flex-col justify-center px-8 md:px-24">
+  <main class="page">
+    <div class="container">
+      <img src="black_h.png" alt="Momenta logo" class="logo" />
 
-    <!-- Logo -->
-    <div class="absolute top-12 z-50 animate-cinematic left-1/2 -translate-x-1/2">
-      <img alt="momenta logo" class="h-6 md:h-8 w-auto brightness-0 invert opacity-60" src="black_h.png"/>
-    </div>
+      <h1>Come back to<br>who you are.</h1>
 
-    <!-- Background Orbs -->
-    <div class="absolute top-1/4 -right-24 w-[600px] h-[600px] orb-blur rounded-full pointer-events-none"></div>
-    <div class="absolute -bottom-48 -left-24 w-[800px] h-[800px] orb-blur rounded-full pointer-events-none"></div>
+      <p class="sub">
+        A daily return to self through alignment and deliberate connection.
+      </p>
 
-    <!-- Content -->
-    <div class="relative z-10 max-w-4xl w-full">
-      <div class="flex flex-col space-y-16">
-
-        <div class="space-y-10">
-          <h1 class="animate-cinematic leading-[1.1] text-[#f0ebe3] text-4xl md:text-6xl tracking-tighter font-body font-extralight">
-            Come back to<br/>who you are.
-          </h1>
-          <p class="animate-cinematic delay-300 dm-mono text-sm md:text-lg text-[#7a7470] max-w-lg leading-relaxed tracking-tight">
-            A daily return to self through alignment and deliberate connection.
-          </p>
-        </div>
-
-        <!-- Waitlist Form -->
-        <div class="animate-cinematic delay-600 max-w-md w-full">
-          <form class="flex flex-col space-y-10">
-            <input
-              class="w-full bg-transparent border-t-0 border-x-0 border-b border-[#474747]/40 focus:border-[#f0ebe3] focus:ring-0 px-0 py-4 dm-mono text-sm transition-colors duration-500 placeholder:text-[#474747]"
-              placeholder="Email Address"
-              type="email"
-            />
-            <button class="group flex items-center gap-6 text-left w-fit transition-all duration-500" type="submit">
-              <span class="dm-mono uppercase text-xs tracking-[0.2em] text-[#faf6f0]">Join the waitlist</span>
-              <div class="w-12 h-[0.5px] bg-[#faf6f0] transition-all duration-500 group-hover:w-24"></div>
-            </button>
-          </form>
-        </div>
-
+      <div class="form-wrap">
+        <input type="email" placeholder="Email Address" class="email-input" />
+        <button class="cta" type="button">
+          <span>Join the waitlist</span>
+          <span class="cta-line"></span>
+        </button>
       </div>
     </div>
-
   </main>
 </body>
 </html>
