@@ -4,13 +4,26 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>momenta — Come back to who you are.</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
   <style>
-    body {
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
+      padding: 0;
+    }
+
+    body {
       min-height: 100vh;
       background: #080808;
       color: #f0ebe3;
-      font-family: Arial, sans-serif;
+      font-family: 'Inter', sans-serif;
       -webkit-font-smoothing: antialiased;
       overflow: hidden;
       position: relative;
@@ -35,24 +48,29 @@
       max-width: 180px;
       height: auto;
       margin-bottom: 48px;
-      opacity: 0.85;
+      opacity: 0.9;
+      display: block;
     }
 
-    h1 {
+    .headline {
       margin: 0 0 20px;
+      max-width: 700px;
+      font-family: 'Instrument Serif', serif;
       font-size: clamp(42px, 8vw, 88px);
       line-height: 0.98;
       font-weight: 400;
       letter-spacing: -0.04em;
-      max-width: 700px;
+      color: #f0ebe3;
     }
 
-    .sub {
+    .subtext {
       margin: 0 0 56px;
       max-width: 520px;
+      font-family: 'DM Mono', monospace;
       color: #8b8480;
-      font-size: 16px;
+      font-size: 14px;
       line-height: 1.7;
+      letter-spacing: 0.01em;
     }
 
     .form-wrap {
@@ -63,15 +81,22 @@
       width: 100%;
       background: transparent;
       border: none;
-      border-bottom: 1px solid rgba(255,255,255,0.22);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.22);
       color: #f0ebe3;
       padding: 0 0 16px;
+      font-family: 'DM Mono', monospace;
       font-size: 14px;
       outline: none;
+      border-radius: 0;
     }
 
     .email-input::placeholder {
       color: #5e5a57;
+      opacity: 1;
+    }
+
+    .email-input:focus {
+      border-bottom-color: #f0ebe3;
     }
 
     .cta {
@@ -82,6 +107,7 @@
       background: none;
       border: none;
       color: #faf6f0;
+      font-family: 'DM Mono', monospace;
       text-transform: uppercase;
       letter-spacing: 0.18em;
       font-size: 11px;
@@ -105,7 +131,7 @@
       border-radius: 999px;
       filter: blur(120px);
       opacity: 0.18;
-      background: radial-gradient(circle, rgba(160,150,145,0.85) 0%, rgba(8,8,8,0) 72%);
+      background: radial-gradient(circle, rgba(160, 150, 145, 0.85) 0%, rgba(8, 8, 8, 0) 72%);
       animation: floatOrb 18s ease-in-out infinite alternate;
       pointer-events: none;
       z-index: 1;
@@ -139,8 +165,13 @@
     }
 
     @media (max-width: 768px) {
+      body {
+        overflow: auto;
+      }
+
       .page {
         padding: 32px 20px;
+        align-items: center;
       }
 
       .logo {
@@ -148,9 +179,13 @@
         margin-bottom: 40px;
       }
 
-      .sub {
-        font-size: 15px;
+      .subtext {
+        font-size: 13px;
         margin-bottom: 44px;
+      }
+
+      .form-wrap {
+        max-width: 100%;
       }
     }
   </style>
@@ -163,14 +198,19 @@
     <div class="container">
       <img src="black_h.png" alt="Momenta logo" class="logo" />
 
-      <h1>Come back to<br>who you are.</h1>
+      <h1 class="headline">Come back to<br>who you are.</h1>
 
-      <p class="sub">
+      <p class="subtext">
         A daily return to self through alignment and deliberate connection.
       </p>
 
       <div class="form-wrap">
-        <input type="email" placeholder="Email Address" class="email-input" />
+        <input
+          type="email"
+          placeholder="Email Address"
+          class="email-input"
+        />
+
         <button class="cta" type="button">
           <span>Join the waitlist</span>
           <span class="cta-line"></span>
