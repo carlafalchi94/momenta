@@ -19,14 +19,58 @@
       padding: 0;
     }
 
+    html {
+      background: #080808;
+    }
+
     body {
       min-height: 100vh;
       background: #080808;
       color: #f0ebe3;
       font-family: 'Inter', sans-serif;
       -webkit-font-smoothing: antialiased;
-      overflow: hidden;
       position: relative;
+      overflow: hidden;
+    }
+
+    .background {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 9999px;
+      pointer-events: none;
+      filter: blur(130px);
+      opacity: 0.34;
+      background: radial-gradient(
+        circle,
+        rgba(170, 162, 156, 0.95) 0%,
+        rgba(110, 104, 99, 0.42) 35%,
+        rgba(8, 8, 8, 0) 75%
+      );
+      animation: floatOrb 18s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+
+    .orb-1 {
+      width: 620px;
+      height: 620px;
+      top: 6%;
+      right: -140px;
+    }
+
+    .orb-2 {
+      width: 760px;
+      height: 760px;
+      bottom: -260px;
+      left: -180px;
+      animation-duration: 24s;
+      opacity: 0.28;
     }
 
     .page {
@@ -46,14 +90,14 @@
     }
 
     .logo-wrap {
-      position: absolute;
-      top: 28px;
+      position: fixed;
+      top: 30px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 3;
-      width: 100%;
       display: flex;
       justify-content: center;
+      width: auto;
       pointer-events: none;
     }
 
@@ -142,32 +186,6 @@
       width: 88px;
     }
 
-    .orb {
-      position: absolute;
-      border-radius: 999px;
-      filter: blur(120px);
-      opacity: 0.18;
-      background: radial-gradient(circle, rgba(160, 150, 145, 0.85) 0%, rgba(8, 8, 8, 0) 72%);
-      animation: floatOrb 18s ease-in-out infinite alternate;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .orb-1 {
-      width: 520px;
-      height: 520px;
-      top: 8%;
-      right: -120px;
-    }
-
-    .orb-2 {
-      width: 700px;
-      height: 700px;
-      bottom: -240px;
-      left: -180px;
-      animation-duration: 24s;
-    }
-
     @keyframes floatOrb {
       0% {
         transform: translate(0, 0) scale(1);
@@ -182,20 +200,20 @@
 
     @media (max-width: 768px) {
       body {
-        overflow: auto;
-      }
-
-      .page {
-        padding: 32px 20px;
-        align-items: center;
+        overflow-x: hidden;
+        overflow-y: auto;
       }
 
       .logo-wrap {
-        top: 20px;
+        top: 22px;
       }
 
       .logo {
         max-width: 145px;
+      }
+
+      .page {
+        padding: 32px 20px;
       }
 
       .content {
@@ -210,12 +228,28 @@
       .form-wrap {
         max-width: 100%;
       }
+
+      .orb-1 {
+        width: 420px;
+        height: 420px;
+        top: 10%;
+        right: -180px;
+      }
+
+      .orb-2 {
+        width: 520px;
+        height: 520px;
+        bottom: -220px;
+        left: -170px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
+  <div class="background">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
 
   <div class="logo-wrap">
     <img src="black_h.png" alt="Momenta logo" class="logo" />
