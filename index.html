@@ -14,7 +14,8 @@
       box-sizing: border-box;
     }
 
-    html, body {
+    html,
+    body {
       margin: 0;
       padding: 0;
       background: #080808;
@@ -41,33 +42,32 @@
       position: absolute;
       border-radius: 9999px;
       pointer-events: none;
-      filter: blur(130px);
+      filter: blur(120px);
       will-change: transform;
-      transform-origin: center;
       background: radial-gradient(
         circle,
-        rgba(165, 158, 152, 0.95) 0%,
-        rgba(110, 104, 99, 0.5) 32%,
-        rgba(8, 8, 8, 0) 74%
+        rgba(165, 158, 152, 0.9) 0%,
+        rgba(110, 104, 99, 0.45) 35%,
+        rgba(8, 8, 8, 0) 75%
       );
     }
 
     .orb-1 {
       width: 620px;
       height: 620px;
-      top: 4%;
-      right: -140px;
-      opacity: 0.34;
-      animation: orbFloat1 14s ease-in-out infinite alternate;
+      top: 0;
+      right: -120px;
+      opacity: 0.28;
+      animation: moveOrb1 12s ease-in-out infinite;
     }
 
     .orb-2 {
       width: 760px;
       height: 760px;
-      bottom: -260px;
-      left: -180px;
-      opacity: 0.28;
-      animation: orbFloat2 18s ease-in-out infinite alternate;
+      bottom: -220px;
+      left: -160px;
+      opacity: 0.22;
+      animation: moveOrb2 15s ease-in-out infinite;
     }
 
     .page {
@@ -116,7 +116,7 @@
       line-height: 0.96;
       font-weight: 400;
       letter-spacing: -0.05em;
-      color: rgba(240, 235, 227, 0.75);
+      color: rgba(240, 235, 227, 0.82);
     }
 
     .subtext {
@@ -182,39 +182,39 @@
       width: 88px;
     }
 
-    @keyframes orbFloat1 {
+    @keyframes moveOrb1 {
       0% {
-        transform: translate3d(0, 0, 0) scale(1);
+        transform: translate(0px, 0px) scale(1);
       }
       25% {
-        transform: translate3d(-18px, 20px, 0) scale(1.05);
+        transform: translate(-30px, 20px) scale(1.06);
       }
       50% {
-        transform: translate3d(-34px, 34px, 0) scale(1.09);
+        transform: translate(-60px, 40px) scale(1.12);
       }
       75% {
-        transform: translate3d(8px, -16px, 0) scale(0.98);
+        transform: translate(-20px, -10px) scale(1.04);
       }
       100% {
-        transform: translate3d(26px, -30px, 0) scale(0.93);
+        transform: translate(20px, -30px) scale(0.96);
       }
     }
 
-    @keyframes orbFloat2 {
+    @keyframes moveOrb2 {
       0% {
-        transform: translate3d(0, 0, 0) scale(1);
+        transform: translate(0px, 0px) scale(1);
       }
       25% {
-        transform: translate3d(24px, -18px, 0) scale(1.03);
+        transform: translate(30px, -20px) scale(1.04);
       }
       50% {
-        transform: translate3d(40px, -34px, 0) scale(1.1);
+        transform: translate(55px, -40px) scale(1.1);
       }
       75% {
-        transform: translate3d(-12px, 16px, 0) scale(1.01);
+        transform: translate(10px, 10px) scale(1.02);
       }
       100% {
-        transform: translate3d(-30px, 28px, 0) scale(0.95);
+        transform: translate(-25px, 30px) scale(0.95);
       }
     }
 
