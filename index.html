@@ -258,8 +258,12 @@
 
     @media (max-width: 768px) {
       .headline {
-        -webkit-animation: fadeIn 2.4s ease-out 0.2s both;
-        animation: fadeIn 2.4s ease-out 0.2s both;
+        opacity: 0;
+      }
+
+      .headline.visible {
+        -webkit-animation: fadeIn 2.4s ease-out both;
+        animation: fadeIn 2.4s ease-out both;
       }
 
       body {
@@ -384,6 +388,16 @@
       });
     }
 
+    if (window.innerWidth <= 768) {
+      var h = document.querySelector('.headline');
+      if (h) {
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            h.classList.add('visible');
+          });
+        });
+      }
+    }
   </script>
 </body>
 </html>
