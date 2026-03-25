@@ -115,15 +115,8 @@
       font-weight: 400;
       letter-spacing: -0.05em;
       color: rgba(240, 235, 227, 0.75);
-      will-change: transform, opacity;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      opacity: 0;
-    }
-
-    .headline.animate {
-      -webkit-animation: fadeUp 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      animation: fadeUp 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      -webkit-animation: fadeUp 2.4s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+      animation: fadeUp 2.4s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
     }
 
     @-webkit-keyframes fadeUp {
@@ -376,12 +369,6 @@
       });
     }
 
-    requestAnimationFrame(function () {
-      requestAnimationFrame(function () {
-        var headline = document.querySelector('.headline');
-        if (headline) headline.classList.add('animate');
-      });
-    });
   </script>
 </body>
 </html>
