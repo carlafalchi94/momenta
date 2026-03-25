@@ -115,31 +115,31 @@
       font-weight: 400;
       letter-spacing: -0.05em;
       color: rgba(240, 235, 227, 0.75);
-      -webkit-animation: fadeUp 2.4s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
-      animation: fadeUp 2.4s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+      -webkit-animation: focusIn 3s ease-out 0.2s both;
+      animation: focusIn 3s ease-out 0.2s both;
     }
 
-    @-webkit-keyframes fadeUp {
+    @-webkit-keyframes focusIn {
       from {
         opacity: 0;
-        -webkit-transform: translateY(48px) translateZ(0);
-        transform: translateY(48px) translateZ(0);
+        -webkit-filter: blur(14px);
+        filter: blur(14px);
       }
       to {
         opacity: 1;
-        -webkit-transform: translateY(0) translateZ(0);
-        transform: translateY(0) translateZ(0);
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
       }
     }
 
-    @keyframes fadeUp {
+    @keyframes focusIn {
       from {
         opacity: 0;
-        transform: translateY(48px) translateZ(0);
+        filter: blur(14px);
       }
       to {
         opacity: 1;
-        transform: translateY(0) translateZ(0);
+        filter: blur(0px);
       }
     }
 
@@ -305,10 +305,10 @@
   <main class="page">
     <div class="container">
       <div class="content">
-        <h1 class="headline">Come back to<br>who you are.</h1>
+        <h1 class="headline">Come back.</h1>
 
         <p class="subtext">
-          A daily moment to return to yourself.
+          A daily moment to come back to who you are.
         </p>
 
         <form
