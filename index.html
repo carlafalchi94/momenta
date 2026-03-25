@@ -118,8 +118,12 @@
       will-change: transform, opacity;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
-      -webkit-animation: fadeUp 2.4s cubic-bezier(0.16, 1, 0.3, 1) both;
-      animation: fadeUp 2.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+      opacity: 0;
+    }
+
+    .headline.animate {
+      -webkit-animation: fadeUp 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: fadeUp 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     @-webkit-keyframes fadeUp {
@@ -286,6 +290,7 @@
 
       .form-wrap {
         max-width: 100%;
+        text-align: left;
       }
 
       .orb-1 {
@@ -370,6 +375,15 @@
         if (mlSuccess) mlSuccess.style.display = 'block';
       });
     }
+
+    window.addEventListener('DOMContentLoaded', function () {
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          var headline = document.querySelector('.headline');
+          if (headline) headline.classList.add('animate');
+        });
+      });
+    });
   </script>
 </body>
 </html>
