@@ -59,7 +59,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
       opacity: 0.72;
-      animation: gravityPulse 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      animation: gravityPulse 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
 
     .page {
@@ -257,15 +257,6 @@
     }
 
     @media (max-width: 768px) {
-      .headline {
-        opacity: 0;
-      }
-
-      .headline.visible {
-        -webkit-animation: fadeIn 2.4s ease-out both;
-        animation: fadeIn 2.4s ease-out both;
-      }
-
       body {
         overflow-x: hidden;
         overflow-y: auto;
@@ -327,7 +318,7 @@
         <h1 class="headline">Come back.</h1>
 
         <p class="subtext">
-          A daily moment to return to who you are.
+          A daily moment to come back to who you are.
         </p>
 
         <form
@@ -391,11 +382,12 @@
     if (window.innerWidth <= 768) {
       var h = document.querySelector('.headline');
       if (h) {
-        requestAnimationFrame(function () {
-          requestAnimationFrame(function () {
-            h.classList.add('visible');
-          });
-        });
+        h.style.opacity = '0';
+        h.style.transition = 'none';
+        setTimeout(function () {
+          h.style.transition = 'opacity 2.4s ease-out';
+          h.style.opacity = '1';
+        }, 80);
       }
     }
   </script>
