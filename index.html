@@ -376,12 +376,10 @@
       });
     }
 
-    window.addEventListener('DOMContentLoaded', function () {
+    requestAnimationFrame(function () {
       requestAnimationFrame(function () {
-        requestAnimationFrame(function () {
-          var headline = document.querySelector('.headline');
-          if (headline) headline.classList.add('animate');
-        });
+        var headline = document.querySelector('.headline');
+        if (headline) headline.classList.add('animate');
       });
     });
   </script>
