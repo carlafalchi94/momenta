@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>mōmenta — come back to who you are.</title>
+  <title>momenta — Come back to who you are.</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,17 +88,16 @@
       margin-bottom: 24px;
     }
 
-    .logo {
-      max-width: 180px;
-      height: auto;
-      display: block;
+    .logo-reveal {
+      display: inline-block;
+      -webkit-clip-path: inset(0 100% 0 0);
       clip-path: inset(0 100% 0 0);
-      animation: typeReveal 1.2s steps(12, end) 0.3s forwards;
     }
 
-    @keyframes typeReveal {
-      from { clip-path: inset(0 100% 0 0); }
-      to   { clip-path: inset(0 0% 0 0); }
+    .logo {
+      display: block;
+      width: 180px;
+      height: auto;
     }
 
     .content {
@@ -266,8 +266,9 @@
       }
 
       .logo {
-        max-width: 145px;
+        width: 145px;
       }
+
 
       .page {
         padding: 32px 20px;
@@ -304,10 +305,12 @@
     <div class="container">
       <div class="content">
         <div class="logo-wrap">
-          <img src="black_h.png" alt="Momenta logo" class="logo" />
+          <div class="logo-reveal">
+            <img src="black_h.png" alt="Momenta logo" class="logo" />
+          </div>
         </div>
         <p class="subtext">
-          A daily return to yourself.
+          A daily moment to return to yourself.
         </p>
 
         <form
@@ -367,6 +370,22 @@
         if (mlSuccess) mlSuccess.style.display = 'block';
       });
     }
+
+    (function () {
+      var el = document.querySelector('.logo-reveal');
+      if (!el) return;
+      var steps = 12;
+      var current = 0;
+      setTimeout(function () {
+        var iv = setInterval(function () {
+          current++;
+          var pct = (100 - (current / steps * 100)).toFixed(1);
+          el.style.webkitClipPath = 'inset(0 ' + pct + '% 0 0)';
+          el.style.clipPath = 'inset(0 ' + pct + '% 0 0)';
+          if (current >= steps) clearInterval(iv);
+        }, 50);
+      }, 100);
+    })();
 
     if (window.innerWidth <= 768) {
       var h = document.querySelector('.headline');
